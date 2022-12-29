@@ -16,10 +16,11 @@ class publication {
             }
 
         }
-        catch(int price){
-            if(price<0){
+        catch(...){
+            
                 cout<<"price can't be negative\n";
-            }
+                
+            
         }
     }
     void display(){

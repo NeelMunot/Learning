@@ -9,10 +9,24 @@ class publication
     public:
     void getdata_pub()
     {
-        cout<<"Enter Book Title : ";
-        cin>>title;
-        cout<<"Enter Book Price : ";
-        cin>>price;
+        try
+        {
+            cout<<"Enter Book Title : ";
+            cin>>title;
+            cout<<"Enter Book Price : ";
+            cin>>price;
+            if (price < 0)
+            {
+                throw price;
+            }
+        }
+        catch(int price)
+        {
+            if(price < 0)
+            {
+                cout<<"Price of Book cannot be Negative "<<endl;
+            }
+        }        
     }
 
     void displaydata_pub()
@@ -30,12 +44,20 @@ class book : protected publication
 
     public:
     void getdata_book()
+    try
     {
         getdata_pub();
         cout<<"Enter Pages : ";
         cin>>page_count;
+        if (page_count < 0)
+        {
+            throw page_count;
+        }
     }
-
+    catch (int pagecount)
+    {
+        cout<<"Number of Pages is Always Positive"<<endl;
+    }
     void displaydata_book()
     {
         displaydata_pub();
