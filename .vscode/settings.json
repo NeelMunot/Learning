@@ -1,9 +1,5 @@
 {
-    "editor.wordWrap": "on",
     "files.associations": {
-        "*.tcc": "cpp",
-        "random": "cpp",
-        "limits": "cpp",
-        "type_traits": "cpp"
+        "iostream": "cpp"
     }
 }
