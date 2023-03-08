@@ -25,9 +25,10 @@ public:
     void postorder(node *root);
     void inorder(node *root);
     void insert_node(node *root, node *temp);
-    void no_nodes();
+    void count_no_nodes();
     void min_data();
     void max_data();
+    void search_node(node *root, int search);
 };
 void Binary_search_tree :: create()
 {
@@ -121,17 +122,75 @@ void Binary_search_tree ::insert_node(node *root, node *temp)
     
 }
 
-void Binary_search_tree :: no_nodes()
+void Binary_search_tree :: count_no_nodes()
 {
     cout<<"\nNumber of nodes in given Binary Search Tree are : "<<count_nodes<<endl;
 }
 
+void Binary_search_tree :: min_data()
+{
+    while (root->left_dir != nullptr)
+    {
+        root = root->left_dir;
+    }
+    cout<<"The minimun value in the BST is "<<root->data<<endl;
+    
+}
+
+void Binary_search_tree :: max_data()
+{
+    while (root->right_dir != nullptr)
+    {
+        root = root->right_dir;
+    }
+    cout<<"The maximum value in the BST is "<<root->data<<endl;
+    
+}
+void Binary_search_tree :: search_node(node *n1, int search )
+{ 
+    int flag=0;
+    cout<<search;
+    if(n1!=NULL)
+    {
+        if (n1->data > search)
+        {
+           // n1 = n1->left_dir;
+            search_node(n1->left_dir,search);
+        }
+        else if (n1->data < search)
+        {
+            //n1 = n1->right_dir;
+            search_node(n1->right_dir,search);
+        }
+        else if (n1->data == search)
+        {
+            cout<<"Node "<<search<<" is present in tree."<<endl;
+            return;
+            //flag=1;
+            //break;
+        }    
+    }
+    // if(flag==1)
+    // {
+    //     cout<<"Node "<<search<<" is present in tree."<<endl;
+    //     return;
+    // }
+
+    else
+    {
+        cout<<"Node not found."<<endl;
+    }
+}
 int main()
 {
+    int n;
     cout<<"Binary Search Tree : "<<endl;
     Binary_search_tree t1;
     t1.create();
     t1.preorder(t1.root);
-    t1.no_nodes();
-
+    t1.count_no_nodes();
+    t1.min_data();
+    cout<<"Enter node to be searched : ";
+    cin>>n;
+    t1.search_node(t1.root, n);
 }
