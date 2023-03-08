@@ -56,6 +56,8 @@ void BST_without_recurssive :: create()
     do
     {
         temp = new node;
+        node *n_temp;
+        n_temp = root;
         //count_nodes ++;
         cout<<"Enter Data of new node : ";
         cin>>temp->data;
@@ -70,30 +72,30 @@ void BST_without_recurssive :: create()
             int flag = 0;
             while (flag != 1)
             {
-                if (temp->data < root->data)
+                if (temp->data < n_temp->data)
                 {
-                    if(root->left_dir == nullptr)
+                    if(n_temp->left_dir == nullptr)
                     {
-                        root->left_dir = temp;
-                      flag = 1;
-                        break;
-                    }
-                    else
-                    {
-                        root = root->left_dir;
-                    }
-                }
-                else if (temp->data > root->data)
-                {
-                    if(root->right_dir == nullptr)
-                    {
-                        root->right_dir = temp;
+                        n_temp->left_dir = temp;
                         flag = 1;
                         break;
                     }
                     else
                     {
-                        root = root->right_dir;
+                        n_temp = n_temp->left_dir;
+                    }
+                }
+                else if (temp->data > n_temp->data)
+                {
+                    if(n_temp->right_dir == nullptr)
+                    {
+                        n_temp->right_dir = temp;
+                        flag = 1;
+                        break;
+                    }
+                    else
+                    {
+                        n_temp = n_temp->right_dir;
                     }
                 }
             }
