@@ -43,12 +43,72 @@ public:
     void preorder(node *root);
     // void postorder(node *root);
     // void inorder(node *root);
-    // void insert_node(node *root, node *temp);
+    void insert_node(node *root, node *temp);
     // void count_no_nodes();
     // void min_data();
     // void max_data();
     // void search_node(node *root, int search);
 };
+// void BST_without_recurssive :: create()
+// {
+//     char choice;
+//     do
+//     {
+//         temp = new node;
+//         count_nodes ++;
+//         cout<<"Enter Data of new node : ";
+//         cin>>temp->data;
+//         temp->left_dir = nullptr;
+//         temp->right_dir = nullptr;
+//         if (root == nullptr)
+//         {
+//             root = temp;
+//         }
+//         // else if (temp->data < root->data)
+//         // {
+//         //     root->left_dir = temp;
+//         // }
+//         // else if (temp->data > root->data)
+//         // {
+//         //     root->right_dir = temp;
+//         // }
+//         else
+//         {
+//             insert_node(root, temp);
+//         }
+//         cout<<"Do you want to add nodes ? "<<endl;
+//         cout<<"Enter choice (y/n) : ";
+//         cin>>choice;
+//     } while (choice == 'y');
+// }
+
+// void BST_without_recurssive ::insert_node(node *root, node *temp)
+// {
+//     if (temp->data < root->data)
+//     {
+//         if (root->left_dir == nullptr)
+//         {
+//             root->left_dir = temp;
+//         }
+//         else
+//         {
+//             insert_node(root->left_dir, temp);
+//         }
+//     }
+//     else if (temp->data > root->data)
+//     {
+//         if (root->right_dir == nullptr)
+//         {
+//             root->right_dir = temp;
+//         }
+//         else
+//         {
+//             insert_node(root->right_dir,temp);
+//         }
+        
+//     }
+    
+// }
 // here root always gets replace so we need to take a new 
 void BST_without_recurssive :: create()
 {
@@ -112,18 +172,18 @@ void BST_without_recurssive :: create()
 
 void BST_without_recurssive :: preorder(node *root)
 {
-    // if(root!=NULL)
-    // {
-    //     cout<<root->data<< " ";
-    //     preorder(root->left_dir);
-    //     preorder(root->right_dir);  
-    // }
-
-    node *t = root;
-    while (t!=nullptr)
+    if(root!=NULL)
     {
-        /* code */
+        cout<<root->data<< " ";
+        preorder(root->left_dir);
+        preorder(root->right_dir);  
     }
+
+    // node *t = root;
+    // while (t!=nullptr)
+    // {
+    //     /* code */
+    // }
     
 }
 
