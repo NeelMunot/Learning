@@ -1,0 +1,72 @@
+/ { Driver Code Starts
+//Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+//User function Template for C++
+
+class Solution {
+  public:
+     string solve(long long N,long long A[])
+     {
+        int ret,flag = 99;
+        int s1 = sum(N,A);
+        if (s1 == 0)
+        {
+            return "YES";
+        }
+        else
+        {
+            for(int j = 0; j < N; j++)
+            {
+                A[j] = A[j] * (-1);
+                ret = sum(N,A);
+                if(ret == 0)
+                {
+                    flag = 1;
+                    return "YES";
+                }
+                
+            }
+        }
+        if (flag!=1)
+        {
+            return "NO";
+        }
+    }
+    
+    int sum(long long N,long long A[])
+    {
+        int sum = 0;
+        for (int i = 0; i < N; i++ )
+        {
+            sum = sum + A[i];
+        }
+        return sum;
+    }
+};
+
+// { Driver Code Starts.
+//Position this line where user code will be pasted.
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        long long N;
+        cin >> N;
+        long long A[N];
+
+        for (int i = 0; i < N; i++) cin >> A[i];
+
+        Solution ob;
+        cout << ob.solve(N, A) << "\n";
+    }
+    return 0;
+}
+  // } Driver Code Ends
+  
+  //Rum time error 
+  // code optimisation exceeds time limit of 2 seconds
