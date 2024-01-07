@@ -6,6 +6,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Scheduling_Alogos",
+        "request": "launch",
+        "mainClass": "Scheduling_Alogos",
+        "projectName": "Learning_c0012065"
+      },
+      {
+        "type": "java",
         "name": "hello",
         "request": "launch",
         "mainClass": "hello",
